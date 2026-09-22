@@ -1,6 +1,6 @@
 # What to Wear Today 🌦️
 
-A playful full-stack weather planner that turns live weather and air quality data into a single, clear **"what to wear and whether to go out"** recommendation — powered entirely by free, keyless APIs.
+A playful full-stack weather planner that turns live weather and air quality data into a single, clear **"what to wear and whether to go out"** recommendation - powered entirely by free, keyless APIs.
 
 Instead of just showing raw numbers, the app runs a small **scoring engine** that weighs temperature, rain, wind, and air quality together to produce one coherent piece of advice for the day.
 
@@ -10,12 +10,12 @@ Instead of just showing raw numbers, the app runs a small **scoring engine** tha
 
 ## ✨ Features
 
-- **Live weather + air quality** from [Open-Meteo](https://open-meteo.com/) — no API key, no billing, no signup
+- **Live weather + air quality** from [Open-Meteo](https://open-meteo.com/) - no API key, no billing, no signup
 - **Auto-location** via browser geolocation, plus manual **city search**
 - **"Feels like" temperature** (apparent temperature)
 - **Scoring engine** that produces coherent, non-contradictory advice (see below)
 - **Glassmorphism UI** with condition-based 3D icons and per-card color tinting
-- Fully **responsive** — works on mobile and desktop
+- Fully **responsive** - works on mobile and desktop
 
 ---
 
@@ -23,16 +23,16 @@ Instead of just showing raw numbers, the app runs a small **scoring engine** tha
 
 Rather than gluing together one sentence per weather factor (which can contradict itself), the engine:
 
-1. Converts each factor — temperature, rain %, wind, AQI — into a **penalty score** (0 = ideal, 100 = worst) using continuous formulas.
+1. Converts each factor — temperature, rain %, wind, AQI - into a **penalty score** (0 = ideal, 100 = worst) using continuous formulas.
 2. Finds the single **limiting factor** (air quality and rain are weighted heaviest).
-3. Computes an overall **outdoor score** driven by the worst factor — so one severe condition can't be "averaged away."
+3. Computes an overall **outdoor score** driven by the worst factor - so one severe condition can't be "averaged away."
 4. Builds one coherent recommendation:
-   - **What to wear** — decided by temperature only
-   - **Whether to go out** — one verdict from the overall score
+   - **What to wear** - decided by temperature only
+   - **Whether to go out** - one verdict from the overall score
    - Plus a specific tip about the limiting factor (e.g. "take an umbrella")
 
 **Example** (26°C, 84% rain, AQI 50):
-> "It's 26°C — light, comfortable clothing is ideal, and it's best to stay indoors today. Also, rain is very likely, so take an umbrella."
+> "It's 26°C - light, comfortable clothing is ideal, and it's best to stay indoors today. Also, rain is very likely, so take an umbrella."
 
 ---
 
