@@ -4,7 +4,7 @@ A playful full-stack weather planner that turns live weather and air quality dat
 
 Instead of just showing raw numbers, the app runs a small **scoring engine** that weighs temperature, rain, wind, and air quality together to produce one coherent piece of advice for the day.
 
-<img width="485" height="796" alt="image" src="https://github.com/user-attachments/assets/6debc2e3-379d-4778-813b-ec737e6b9e72" />  <img width="493" height="802" alt="image" src="https://github.com/user-attachments/assets/a95ddff5-9bad-4aeb-be4d-70cb9f9d90e4" />
+<img width="485" height="796" alt="image" src="https://github.com/user-attachments/assets/6debc2e3-379d-4778-813b-ec737e6b9e72" />  
 
 ---
 
