@@ -30,19 +30,20 @@ app.get('/api/planner', async (req, res) => {
     const aqi = await getAirQuality(latitude, longitude);
 
     const suggestion = getSuggestion({
-      temperature: weather.temperature_2m,
-      windSpeed: weather.wind_speed_10m,
-      precipitationProb: weather.precipitation_probability ?? 0,
-      aqi
+        temperature: weather.temperature_2m,
+        windSpeed: weather.wind_speed_10m,
+        precipitationProb: weather.precipitation_probability ?? 0,
+        aqi
     });
 
     res.json({
         location: locationName,
         temperature: weather.temperature_2m,
         windSpeed: weather.wind_speed_10m,
-        precipitationProb: weather.precipitation_probability ?? 0,   // add this line
+        precipitationProb: weather.precipitation_probability ?? 0,
         aqi,
-        suggestion
+        suggestionText: suggestion.text,
+        suggestionTags: suggestion.tags
     });
 
   } catch (err) {
