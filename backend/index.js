@@ -26,8 +26,11 @@ app.get('/api/planner', async (req, res) => {
       return res.status(400).json({ error: 'Provide either lat/lon or a place name' });
     }
 
-    const weather = await getWeather(latitude, longitude);
-    const aqi = await getAirQuality(latitude, longitude);
+    const [weather, aqiRaw] = await Promise.all([
+        getWeather(latitude, longitude),
+        getAirQuality(latitude, longitude),
+    ]);
+    const aqi = aqiRaw ?? 0; // guard: air-quality endpoint can return null
 
     const suggestion = getSuggestion({
         temperature: weather.temperature_2m,
@@ -39,11 +42,13 @@ app.get('/api/planner', async (req, res) => {
     res.json({
         location: locationName,
         temperature: weather.temperature_2m,
+        feelsLike: weather.apparent_temperature,
         windSpeed: weather.wind_speed_10m,
         precipitationProb: weather.precipitation_probability ?? 0,
         aqi,
         suggestionText: suggestion.text,
-        suggestionTags: suggestion.tags
+        suggestionTags: suggestion.tags,
+        outdoorScore: suggestion.outdoorScore
     });
 
   } catch (err) {

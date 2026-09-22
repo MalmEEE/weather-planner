@@ -18,7 +18,7 @@ async function getWeather(lat, lon) {
     params: {
       latitude: lat,
       longitude: lon,
-      current: 'temperature_2m,wind_speed_10m,precipitation_probability'
+      current: 'temperature_2m,apparent_temperature,wind_speed_10m,precipitation_probability'
     }
   });
   return res.data.current;
